@@ -1,0 +1,133 @@
+/* styles.css — tema dasar Afterlife Kit: dark horror + glow neon.
+   Tiap app boleh mengubah variabel --accent / --glow di <style> sendiri
+   tanpa menyentuh struktur. */
+
+:root {
+  --bg: #0d0f14;
+  --surface: #161a22;
+  --surface-2: #1f2430;
+  --text: #e8e6df;
+  --muted: #9a97a3;
+  --accent: #7dff9e;      /* hijau neon — Deadline Necromancer */
+  --glow: rgba(125, 255, 158, 0.35);
+  --danger: #ff6b6b;
+  --warning: #ffb454;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+main { max-width: 880px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+h1 { font-size: 1.9rem; margin-bottom: 0.2rem; }
+h1 .glow { color: var(--accent); text-shadow: 0 0 18px var(--glow); }
+.subtitle { color: var(--muted); margin-top: 0; }
+
+.dropzone {
+  border: 2px dashed var(--muted);
+  border-radius: var(--radius);
+  padding: 2.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  background: var(--surface);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.dropzone:hover, .dropzone.dragover {
+  border-color: var(--accent);
+  box-shadow: 0 0 24px var(--glow);
+}
+
+.errors {
+  background: #2a1414;
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+}
+.errors ul { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th, td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--surface-2); }
+th { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+tr.status-overdue td:first-child { border-left: 3px solid var(--danger); }
+tr.status-soon td:first-child { border-left: 3px solid var(--warning); }
+tr.status-safe td:first-child { border-left: 3px solid var(--accent); }
+
+/* Tabel ringkasan (R10): judul kecil + grand total bergaris atas. */
+#summary h2, #summaryMonthly h2 { font-size: 1.15rem; margin: 1.5rem 0 0; }
+.summary-table tfoot td { border-top: 2px solid var(--accent); border-bottom: none; }
+
+/* Preview note: catatan di bawah preview table */
+.preview-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0;
+}
+
+/* Mapper: tampilan pemetaan kolom manual */
+.mapper {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.mapper-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.mapper-row:last-child {
+  margin-bottom: 0;
+}
+.mapper-row label {
+  min-width: 120px;
+  color: var(--muted);
+}
+.mapper-row select {
+  flex: 1;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--muted);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.mapper-row select:hover {
+  border-color: var(--accent);
+}
+
+button {
+  background: var(--accent);
+  color: #0d0f14;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.6rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0.3rem 0.4rem 0.3rem 0;
+}
+button.secondary { background: var(--surface-2); color: var(--text); }
+
+.toast {
+  position: fixed; bottom: 1.2rem; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--surface-2); color: var(--text);
+  padding: 0.7rem 1.2rem; border-radius: var(--radius);
+  border: 1px solid var(--accent);
+  opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+footer { color: var(--muted); font-size: 0.85rem; margin-top: 2.5rem; }

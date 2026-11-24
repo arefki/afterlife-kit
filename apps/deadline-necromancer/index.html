@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deadline Necromancer — Afterlife Kit</title>
+  <link rel="stylesheet" href="../../template/src/styles.css">
+</head>
+<body>
+  <main>
+    <h1>☠️ Deadline <span class="glow">Necromancer</span></h1>
+    <p class="subtitle">
+      Bangkitkan daftar tugas kuliahmu dari kubur CSV — tandai deadline yang
+      lewat, lalu ekspor ke kalender. Format CSV:
+      <code>tugas,mata_kuliah,deadline</code> (deadline: YYYY-MM-DD).
+      Coba dengan <a href="sample.csv">sample.csv</a>.
+    </p>
+
+    <div id="dropzone" class="dropzone">
+      🪦 Seret file CSV tugas ke sini, atau klik untuk memilih file
+    </div>
+
+    <div id="errors" class="errors" hidden></div>
+    <div id="preview"></div>
+    <div id="mapper"></div>
+    <div id="results"></div>
+    <div id="exportBar"></div>
+
+    <p>
+      <button id="clearBtn" class="secondary">🗑️ Hapus data saya</button>
+    </p>
+
+    <footer>
+      Deadline Necromancer — bagian dari Afterlife Kit (Kiroween 2026, Skeleton Crew).
+      Data tidak pernah meninggalkan perangkatmu.
+    </footer>
+  </main>
+
+  <script type="module">
+    import { createApp } from "../../template/src/app.js";
+    import { appConfig } from "./src/app-config.js";
+    createApp(appConfig, {
+      dropzone: document.getElementById("dropzone"),
+      errors: document.getElementById("errors"),
+      results: document.getElementById("results"),
+      exportBar: document.getElementById("exportBar"),
+      clearBtn: document.getElementById("clearBtn"),
+      preview: document.getElementById("preview"),
+      mapper: document.getElementById("mapper"),
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Afterlife Kit — .gitignore
+#
+# PENTING (aturan Kiroween): direktori /.kiro di root repo WAJIB ikut
+# ter-commit. File ini sengaja TIDAK mengecualikan /.kiro.
+# Jangan pernah menambahkan ".kiro" ke file ini.
+
+# Editor & OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Artefak lokal
+*.log
+node_modules/
+dist/
+build/
+coverage/
+
+# File sementara demo
+/tmp/
+*.tmp
